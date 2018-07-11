@@ -22,10 +22,10 @@ conan_basic_setup()''')
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="corrade", definitions={
+        cmake.configure(source_folder="corrade", defs={
                         "BUILD_DEPRECATED": False,
                         "WITH_INTERCONNECT": False,
-                        "BUILD_STATIC": False if self.shared else True})
+                        "BUILD_STATIC": False if self.options.shared else True})
         cmake.build()
 
     def package(self):
